@@ -101,7 +101,7 @@ WebSockets / Change Streams
 
 🏗 Hosting
 
-Firebase / Vercel / Heroku (Choose one)
+Firebase / Vercel 
 
 🎯 Features
 
