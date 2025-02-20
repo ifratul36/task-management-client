@@ -5,13 +5,14 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDWIiu23Or8X4AtHnl2NlQ_cLGF3-BYVmU",
-  authDomain: "task-managment-client-ae2ee.firebaseapp.com",
-  projectId: "task-managment-client-ae2ee",
-  storageBucket: "task-managment-client-ae2ee.firebasestorage.app",
-  messagingSenderId: "3986507798",
-  appId: "1:3986507798:web:d790d3fd7ae4f838a84d37"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+
