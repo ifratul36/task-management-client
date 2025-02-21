@@ -6,6 +6,9 @@ import Home from "../component/Home/Home";
 import TaskAdd from "../component/TaskAdd/TaskAdd";
 import PrivateRoute from "./PrivateRoute";
 import Todo from "../component/Todo";
+import AddTask from "../component/AddTask/AddTask";
+import AllTasks from "../component/AllTasks/AllTasks";
+import EditTask from "../component/EditTask/EditTask";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +21,15 @@ export const router = createBrowserRouter([
       },
       {
         path:'addTask',
-        element:<PrivateRoute><TaskAdd /></PrivateRoute>,
+        element:<PrivateRoute><AddTask /></PrivateRoute>,
+      },
+      {
+        path:'allTask',
+        element:<PrivateRoute><AllTasks /></PrivateRoute>,
+      },
+      {
+        path:'editTask',
+        element:<PrivateRoute><EditTask /></PrivateRoute>,
       },
       {
         path:'todo',

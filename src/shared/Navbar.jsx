@@ -1,17 +1,20 @@
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
 
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(error => console.log(error));
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
+  console.log("User Object:", user);
+  console.log(user?.photoURL)
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
@@ -34,12 +37,14 @@ const Navbar = () => {
         <Link to="/addTask">Add Task</Link>
       </li>
       <li className=" hover:text-orange-600">
+        <Link to="/allTask">All Task</Link>
+      </li>
+      <li className=" hover:text-orange-600">
         <Link to="/todo">Todo</Link>
       </li>
       <li className=" hover:text-orange-600">
         <Link to="/secret">Secret</Link>
       </li>
-     
     </>
   );
 
@@ -85,8 +90,8 @@ const Navbar = () => {
           >
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
-                src={user?.photoURL || "default-avatar.jpg"} 
+                alt="Jannat"
+                src={user?.photoURL || "default-avatar.jpg"}
               />
             </div>
           </div>
@@ -94,15 +99,6 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
             <li>
               {user ? (
                 <>
@@ -124,9 +120,13 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-         {/* Theme Toggle Button */}
-      <button onClick={toggleTheme} className="text-3xl mx-4">
-          {theme === "dark" ? <FaSun className="text-yellow-500" /> : <FaMoon className="text-gray-800" />}
+        {/* Theme Toggle Button */}
+        <button onClick={toggleTheme} className="text-3xl mx-4">
+          {theme === "dark" ? (
+            <FaSun className="text-yellow-500" />
+          ) : (
+            <FaMoon className="text-gray-800" />
+          )}
         </button>
       </div>
     </div>
