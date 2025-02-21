@@ -1,3 +1,61 @@
+// import React, { useEffect, useState } from "react";
+// import { useParams, useNavigate } from "react-router-dom";
+// import useAxiosSecure from "../../hooks/useAxiosSecure";
+// import Swal from "sweetalert2";
+
+// const EditTask = () => {
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+//   const axiosSecure = useAxiosSecure();
+//   const [task, setTask] = useState({ title: "", description: "", category: "" });
+
+//   useEffect(() => {
+//     axiosSecure
+//       .get(`/tasks/${id}`)
+//       .then((res) => setTask(res.data))
+//       .catch((error) => console.error("Error fetching task:", error));
+//   }, [id]);
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setTask({ ...task, [name]: value });
+//   };
+
+//   const handleUpdate = (e) => {
+//     e.preventDefault();
+//     axiosSecure
+//       .put(`/tasks/${id}`, task)
+//       .then(() => {
+//         Swal.fire("Updated!", "Task updated successfully.", "success");
+//         navigate("/allTasks");
+//       })
+//       .catch((error) => console.error("Error updating task:", error));
+//   };
+
+//   return (
+//     <div className="container mx-auto p-6">
+//       <h2 className="text-2xl font-semibold mb-4">Edit Task</h2>
+//       <form onSubmit={handleUpdate} className="space-y-4">
+//         <input
+//           type="text"
+//           name="title"
+//           value={task.title}
+//           onChange={handleChange}
+//           className="w-full p-2 border border-gray-300 rounded"
+//           placeholder="Task Title"
+//           required
+//         />
+//         <textarea
+//           name="description"
+//           value={task.description}
+//           onChange={handleChange}
+//           className="w-full p-2 border border-gray-300 rounded"
+//           placeholder="Task Description"
+//         ></textarea>
+
+
+
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -7,12 +65,22 @@ const EditTask = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-  const [task, setTask] = useState({ title: "", description: "", category: "" });
+  const [task, setTask] = useState({ title: "", description: "", category: "", timestamp: "" });
+  const [originalTask, setOriginalTask] = useState({ title: "", description: "", category: "", timestamp: "" }); // Store original task data
+  const [categories] = useState(["Work", "Personal", "Urgent", "Others"]); // Example categories
 
   useEffect(() => {
+    // Fetch the task details to edit
     axiosSecure
       .get(`/tasks/${id}`)
-      .then((res) => setTask(res.data))
+      .then((res) => {
+        const fetchedTask = res.data;
+        setTask({
+          ...fetchedTask,
+          timestamp: new Date().toISOString(), // Add the current timestamp when loading the task
+        });
+        setOriginalTask(fetchedTask); // Save the original task data
+      })
       .catch((error) => console.error("Error fetching task:", error));
   }, [id]);
 
@@ -23,13 +91,44 @@ const EditTask = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axiosSecure
-      .put(`/tasks/${id}`, task)
-      .then(() => {
-        Swal.fire("Updated!", "Task updated successfully.", "success");
-        navigate("/tasks");
-      })
-      .catch((error) => console.error("Error updating task:", error));
+
+    // Show the changed values to the user before updating
+    const changes = {};
+    for (const key in task) {
+      if (task[key] !== originalTask[key]) {
+        changes[key] = {
+          original: originalTask[key],
+          updated: task[key],
+        };
+      }
+    }
+
+    if (Object.keys(changes).length > 0) {
+      Swal.fire({
+        title: "Confirm Task Update",
+        html: Object.entries(changes).map(
+          ([key, { original, updated }]) => `<strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong><br>Original: ${original}<br>Updated: ${updated}<br><br>`
+        ).join(''),
+        showCancelButton: true,
+        confirmButtonText: "Update",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Proceed with the update if confirmed
+          axiosSecure
+            .put(`/tasks/${id}`, {
+              ...task,
+              timestamp: new Date().toISOString(), // Update the timestamp when editing
+            })
+            .then(() => {
+              Swal.fire("Updated!", "Task updated successfully.", "success");
+              navigate("/allTasks");
+            })
+            .catch((error) => console.error("Error updating task:", error));
+        }
+      });
+    } else {
+      Swal.fire("No Changes", "No changes were made to the task.", "info");
+    }
   };
 
   return (
@@ -52,18 +151,29 @@ const EditTask = () => {
           className="w-full p-2 border border-gray-300 rounded"
           placeholder="Task Description"
         ></textarea>
-        <input
-          type="text"
+        
+        {/* Category Selection */}
+        <select
           name="category"
           value={task.category}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded"
-          placeholder="Category"
-        />
+        >
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+
         <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
           Update Task
         </button>
       </form>
+
+      <div className="mt-4">
+        <p><strong>Last Edited: </strong>{task.timestamp ? new Date(task.timestamp).toLocaleString() : "Not available"}</p>
+      </div>
     </div>
   );
 };

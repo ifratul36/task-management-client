@@ -3,7 +3,6 @@ import Main from "../layout/Main";
 import Login from "../component/Login/Login";
 import Signup from "../component/signup/Signup";
 import Home from "../component/Home/Home";
-import TaskAdd from "../component/TaskAdd/TaskAdd";
 import PrivateRoute from "./PrivateRoute";
 import Todo from "../component/Todo";
 import AddTask from "../component/AddTask/AddTask";
@@ -28,7 +27,7 @@ export const router = createBrowserRouter([
         element:<PrivateRoute><AllTasks /></PrivateRoute>,
       },
       {
-        path:'editTask',
+        path:'editTask/:id',
         element:<PrivateRoute><EditTask /></PrivateRoute>,
       },
       {
