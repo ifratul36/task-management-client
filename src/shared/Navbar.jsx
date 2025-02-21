@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../providers/AuthProvider";
 import useAuth from "../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [theme, setTheme] = useState("light");
 
   const handleLogOut = () =>{
     logOut()
@@ -12,6 +13,18 @@ const Navbar = () => {
     .catch(error => console.log(error));
   }
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
   const navOptions = (
     <>
       <li className=" hover:text-orange-600">
@@ -21,11 +34,12 @@ const Navbar = () => {
         <Link to="/addTask">Add Task</Link>
       </li>
       <li className=" hover:text-orange-600">
-        <Link to="/order/:category">Order Food</Link>
+        <Link to="/todo">Todo</Link>
       </li>
       <li className=" hover:text-orange-600">
         <Link to="/secret">Secret</Link>
       </li>
+     
     </>
   );
 
@@ -72,7 +86,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src={user?.photoURL || "default-avatar.jpg"} 
               />
             </div>
           </div>
@@ -110,6 +124,10 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+         {/* Theme Toggle Button */}
+      <button onClick={toggleTheme} className="text-3xl mx-4">
+          {theme === "dark" ? <FaSun className="text-yellow-500" /> : <FaMoon className="text-gray-800" />}
+        </button>
       </div>
     </div>
   );

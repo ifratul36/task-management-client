@@ -5,6 +5,7 @@ import Signup from "../component/signup/Signup";
 import Home from "../component/Home/Home";
 import TaskAdd from "../component/TaskAdd/TaskAdd";
 import PrivateRoute from "./PrivateRoute";
+import Todo from "../component/Todo";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path:'addTask',
         element:<PrivateRoute><TaskAdd /></PrivateRoute>,
+      },
+      {
+        path:'todo',
+        element:<PrivateRoute><Todo /></PrivateRoute>,
       }
     ],
   },
