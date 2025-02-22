@@ -46,9 +46,9 @@ const Login = () => {
       <Helmet>
          <title>Task Management | Login</title>
       </Helmet>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="card bg-white w-full max-w-sm p-6 rounded-2xl shadow-xl border border-gray-200">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">Login</h2>
+      <div className="flex justify-center items-center min-h-screen ">
+        <div className="card  w-full max-w-sm p-6 rounded-2xl shadow-xl border border-gray-200">
+          <h2 className="text-2xl font-bold text-center mb-6 ">Welcome back !</h2>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="form-control">
               <label className="label font-medium">Email</label>
@@ -56,7 +56,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full"
+                className=" w-full px-2 py-3 border border-teal-700 focus:outline-teal-700 rounded mr-2"
                 required
               />
             </div>
@@ -66,28 +66,28 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full pr-10"
+                className=" w-full px-2 py-3 border border-teal-700 focus:outline-teal-700 rounded mr-2"
                 required
               />
               <button
                 type="button"
-                className="absolute right-3 top-9 text-gray-600"
+                className="absolute right-3 top-10 text-gray-600"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
               <label className="label text-right">
-                <a href="#" className="text-sm text-blue-600 hover:underline">
+                <a href="#" className="text-sm text-accent hover:underline">
                   Forgot password?
                 </a>
               </label>
             </div>
             <div className="form-control">
-              <button className="btn btn-primary w-full">Login</button>
+              <button className="btn btn-accent w-full">Login</button>
             </div>
             <p className="text-center text-sm ">
               New here? 
-              <Link to="/signup" className="text-blue-600 font-semibold hover:underline">
+              <Link to="/signup" className="text-accent font-semibold hover:underline">
                 Create an account
               </Link>
             </p>

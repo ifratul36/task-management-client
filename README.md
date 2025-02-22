@@ -39,7 +39,7 @@ Follow these steps to get the app running on your local machine:
 
 1️⃣ Clone the repository
 
- git clone https://github.com/yourusername/task-manager.git
+ git clone [live link](https://task-managment-client-ae2ee.web.app)
 
 2️⃣ Navigate to the project directory
 

@@ -3,10 +3,10 @@ import React from "react";
 const Banner = () => {
   return (
     <>
-      <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 py-12 ">
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 py-12">
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0">
-          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold  mb-4">
             Give work a new look with Task Management views.
           </h2>
           <div className="w-[90%] h-1 bg-gradient-to-r from-teal-500 to-teal-800 mb-4"></div>

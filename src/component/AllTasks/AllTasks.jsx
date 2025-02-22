@@ -61,7 +61,7 @@ const AllTasks = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((task) => (
+            {tasks?.map((task) => (
               <tr key={task._id}>
                 <td className="px-6 py-3">{task.title}</td>
                 <td className="px-6 py-3">{task.description || "N/A"}</td>

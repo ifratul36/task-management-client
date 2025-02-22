@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   console.log("User Object:", user);
-  console.log(user?.photoURL)
+  console.log(user?.photoURL);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
@@ -30,66 +30,66 @@ const Navbar = () => {
   };
   const navOptions = (
     <>
-    <li>
-      <NavLink
-        to="/"
-        style={({ isActive }) => ({
-          color: isActive ? "teal" : "inherit",
-           fontWeight: isActive ? "bold" : "normal",
-        })}
-      >
-        Home
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/addTask"
-        style={({ isActive }) => ({
-          color: isActive ? "teal" : "inherit",
-           fontWeight: isActive ? "bold" : "normal",
-        })}
-      >
-        Add Task
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/allTask"
-        style={({ isActive }) => ({
-          color: isActive ? "teal" : "inherit",
-           fontWeight: isActive ? "bold" : "normal",
-        })}
-      >
-        All Task
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/todo"
-        style={({ isActive }) => ({
-          color: isActive ? "teal" : "inherit",
-          fontWeight: isActive ? "bold" : "normal",
-        })}
-      >
-        Todo
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/drag"
-        style={({ isActive }) => ({
-          color: isActive ? "teal" : "inherit",
-           fontWeight: isActive ? "bold" : "normal",
-        })}
-      >
-        Drag
-      </NavLink>
-    </li>
-  </>
+      <li>
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            color: isActive ? "teal" : "inherit",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/addTask"
+          style={({ isActive }) => ({
+            color: isActive ? "teal" : "inherit",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          Add Task
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/allTask"
+          style={({ isActive }) => ({
+            color: isActive ? "teal" : "inherit",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          All Task
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/drag"
+          style={({ isActive }) => ({
+            color: isActive ? "teal" : "inherit",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          Drag & Drop
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/todo"
+          style={({ isActive }) => ({
+            color: isActive ? "teal" : "inherit",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          Todo
+        </NavLink>
+      </li>
+    </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -116,7 +116,7 @@ const Navbar = () => {
             {navOptions}
           </ul>
         </div>
-        <p className="md:text-xl ">Task Management</p>
+        <p className="md:text-2xl font-bold text-xl text-teal-500">Task Management</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
@@ -129,10 +129,7 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt="Jannat"
-                src={user?.photoURL || "default-avatar.jpg"}
-              />
+              <img alt="Jannat" src={user?.photoURL || "default-avatar.jpg"} />
             </div>
           </div>
           <ul
@@ -143,6 +140,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <button
+                  type="submit"
                     className=" hover:text-orange-600"
                     onClick={handleLogOut}
                   >

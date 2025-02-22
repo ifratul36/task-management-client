@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const TaskSuccess = () => {
@@ -28,9 +29,11 @@ const TaskSuccess = () => {
             and celebrate each accomplishment. Project management has never been
             so powerful, yet so fun.
           </p>
-          <button className="btn btn-outline border-teal-600 py-6 px-8 mt-4 hover:bg-[#43dadc9d]">
+         <Link to="/addTask"> 
+         <button className="btn btn-outline border-teal-600 py-6 px-8 mt-4 hover:bg-[#43dadc9d]">
             Add your task
           </button>
+          </Link>
         </div>
       </section>
 
@@ -46,9 +49,11 @@ const TaskSuccess = () => {
           <p className=" text-lg leading-relaxed">
           Visualize checklist items and cards with due dates in Calendar View, showing what tasks are due in the days and weeks ahead. Cards will be arranged according to their due date and will display any labels, members, or checklists added to them.
           </p>
-          <button className="btn btn-outline border-teal-600 py-6 px-8 mt-4 hover:bg-[#43dadc9d]">
+        <Link to="/drag">
+        <button className="btn btn-outline border-teal-600 py-6 px-8 mt-4 hover:bg-[#43dadc9d]">
             Drag & Drop
           </button>
+        </Link>
         </div>
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">

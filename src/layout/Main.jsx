@@ -5,11 +5,13 @@ import Footer from '../shared/Footer';
 
 const Main = () => {
     return (
-        <div className='h-(100vh-200px)'>
+        <div className="flex flex-col min-h-screen">
             <Navbar />
-            <Outlet />
+            <div className="flex-grow">
+                <Outlet />
+            </div>
             <Footer />
-      </div>
+        </div>
     );
 };
 
