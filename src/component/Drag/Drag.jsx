@@ -97,10 +97,6 @@
 //                   {...provided.droppableProps}
 //                 >
 //                   <h3 className="font-bold text-lg mb-4">
-//                     {category === "todo" ? "To-Do" : category === "inProgress" ? "In Progress" : "Done"}
-//                   </h3>
-//                   {tasks[category].map((task, index) => (
-//                     <Draggable key={task._id} draggableId={task._id} index={index}>
 
 
 import React, { useEffect, useState } from "react";
