@@ -167,20 +167,6 @@
 //         </select>
 
 //         <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
-//           Update Task
-//         </button>
-//       </form>
-
-//       <div className="mt-4">
-//         <p><strong>Last Edited: </strong>{task.timestamp ? new Date(task.timestamp).toLocaleString() : "Not available"}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default EditTask;
-
-
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
