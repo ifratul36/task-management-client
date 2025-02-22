@@ -131,11 +131,7 @@
 //                       )}
 //                     </Draggable>
 //                   ))}
-//                   {provided.placeholder}
-//                 </div>
-//               )}
-//             </Droppable>
-//           ))}
+//                   {provided.placehol
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
