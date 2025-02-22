@@ -163,10 +163,6 @@
 //             <option key={category} value={category}>
 //               {category}
 //             </option>
-//           ))}
-//         </select>
-
-//         <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
