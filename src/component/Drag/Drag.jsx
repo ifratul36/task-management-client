@@ -101,34 +101,6 @@
 //                   </h3>
 //                   {tasks[category].map((task, index) => (
 //                     <Draggable key={task._id} draggableId={task._id} index={index}>
-//                       {(provided) => (
-//                         <div
-//                           className="mb-4 p-4 rounded border border-[#55ccd0] shadow-lg text-center"
-//                           ref={provided.innerRef}
-//                           {...provided.draggableProps}
-//                           {...provided.dragHandleProps}
-//                         >
-//                           <h4 className="font-semibold text-xl">{task.title}</h4>
-//                           <p>{task.description || "No Description"}</p>
-//                           <p className="text-sm ">
-//                             {new Date(task.timestamp).toLocaleString()}
-//                           </p>
-//                           <div className="flex justify-center gap-4 mt-2">
-//                             <button
-//                               onClick={() => handleEdit(task._id)}
-//                               className="btn btn-outline flex items-center gap-2"
-//                             >
-//                               <FaEdit />
-//                             </button>
-//                             <button
-//                               onClick={() => handleDelete(task._id)}
-//                               className="btn btn-outline flex items-center gap-2"
-//                             >
-//                               <FaTrashAlt />
-//                             </button>
-//                           </div>
-//                         </div>
-//                       )}
 
 
 import React, { useEffect, useState } from "react";
