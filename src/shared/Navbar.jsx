@@ -1,5 +1,5 @@
 import { FaMoon, FaSun } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -30,22 +30,62 @@ const Navbar = () => {
   };
   const navOptions = (
     <>
-      <li className=" hover:text-orange-600">
-        <Link to="/">Home</Link>
-      </li>
-      <li className=" hover:text-orange-600">
-        <Link to="/addTask">Add Task</Link>
-      </li>
-      <li className=" hover:text-orange-600">
-        <Link to="/allTask">All Task</Link>
-      </li>
-      <li className=" hover:text-orange-600">
-        <Link to="/todo">Todo</Link>
-      </li>
-      <li className=" hover:text-orange-600">
-        <Link to="/secret">Secret</Link>
-      </li>
-    </>
+    <li>
+      <NavLink
+        to="/"
+        style={({ isActive }) => ({
+          color: isActive ? "teal" : "inherit",
+           fontWeight: isActive ? "bold" : "normal",
+        })}
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/addTask"
+        style={({ isActive }) => ({
+          color: isActive ? "teal" : "inherit",
+           fontWeight: isActive ? "bold" : "normal",
+        })}
+      >
+        Add Task
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/allTask"
+        style={({ isActive }) => ({
+          color: isActive ? "teal" : "inherit",
+           fontWeight: isActive ? "bold" : "normal",
+        })}
+      >
+        All Task
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/todo"
+        style={({ isActive }) => ({
+          color: isActive ? "teal" : "inherit",
+          fontWeight: isActive ? "bold" : "normal",
+        })}
+      >
+        Todo
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/drag"
+        style={({ isActive }) => ({
+          color: isActive ? "teal" : "inherit",
+           fontWeight: isActive ? "bold" : "normal",
+        })}
+      >
+        Drag
+      </NavLink>
+    </li>
+  </>
   );
 
   return (
@@ -76,7 +116,7 @@ const Navbar = () => {
             {navOptions}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <p className="md:text-xl ">Task Management</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>

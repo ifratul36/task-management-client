@@ -8,6 +8,7 @@ import Todo from "../component/Todo";
 import AddTask from "../component/AddTask/AddTask";
 import AllTasks from "../component/AllTasks/AllTasks";
 import EditTask from "../component/EditTask/EditTask";
+import Drag from "../component/Drag/Drag";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path:'editTask/:id',
         element:<PrivateRoute><EditTask /></PrivateRoute>,
+      },
+      {
+        path:'drag',
+        element:<PrivateRoute><Drag /></PrivateRoute>,
       },
       {
         path:'todo',

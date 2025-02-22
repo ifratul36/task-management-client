@@ -85,14 +85,16 @@ const Login = () => {
             <div className="form-control">
               <button className="btn btn-primary w-full">Login</button>
             </div>
-            <p className="text-center text-sm text-gray-600">
+            <p className="text-center text-sm ">
               New here? 
               <Link to="/signup" className="text-blue-600 font-semibold hover:underline">
                 Create an account
               </Link>
             </p>
           </form>
+          <div className="divider">or</div>
           <SocialLogin />
+          {/* https://i.ibb.co.com/LdHKSxdT/Sign-in-bro.png */}
         </div>
       </div>
     </>
