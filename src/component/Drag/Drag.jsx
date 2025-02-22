@@ -1,23 +1,4 @@
-// import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import useAxiosSecure from "../../hooks/useAxiosSecure";
-// import Swal from "sweetalert2";
-// import { FaEdit, FaTrashAlt } from "react-icons/fa";
-// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-// const Drag = () => {
-//   const axiosSecure = useAxiosSecure();
-//   const navigate = useNavigate();
-//   const [tasks, setTasks] = useState({
-//     todo: [],
-//     inProgress: [],
-//     done: [],
-//   });
-
-//   useEffect(() => {
-//     axiosSecure
-//       .get("/tasks")
-//       .then((res) => {
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
