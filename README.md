@@ -9,7 +9,7 @@ All changes are instantly saved to the database, ensuring real-time updates and 
 
 🌐 Live Demo
 
-🔗 Click here to check out the live app! (Add your live link here)
+🔗 Click here to check out the live app! (https://task-managment-client-ae2ee.web.app)
 
 📦 Dependencies
 
@@ -37,9 +37,6 @@ Backend:
 
 Follow these steps to get the app running on your local machine:
 
-1️⃣ Clone the repository
-
- git clone [live link](https://task-managment-client-ae2ee.web.app)
 
 2️⃣ Navigate to the project directory
 
