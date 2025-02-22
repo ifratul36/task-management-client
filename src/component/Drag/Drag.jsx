@@ -136,15 +136,6 @@
 //               )}
 //             </Droppable>
 //           ))}
-//         </div>
-//       </DragDropContext>
-//     </div>
-//   );
-// };
-
-// export default Drag;
-
-
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
